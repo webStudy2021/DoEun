@@ -29,6 +29,9 @@
 
   /* Size */
   --size-border-radius: 4px;
+  /* animation */
+
+  --animation-duration: 300ms;
 }
 
 /* Universal tag  */
@@ -141,4 +144,65 @@ p {
   padding: 8px 12px;
   border: 4px solid var(--color-light-white);
   border-radius: var(--size-border-radius);
+}
+/* Section COMMON */
+.section {
+  padding: 50px;
+  text-align: center;
+  max-width: 1200px; /* 최대 넓이 지정해서 . 데스크탑에서 편히 볼 수 있는 넓이1000~1200px */
+  margin: auto; /* 늘여도 margin이 한쪽에만 있을 때 */
+}
+
+/* about */
+
+.about__major {
+  /* container 자체를 flex 박스로 만들어줌 , 자동적으로 나란히   붙어 있음.*/
+  display: flex;
+  justify-content: space-between;
+  margin: 80px 0;
+}
+.major__icon {
+  width: 170px;
+  height: 170px;
+  font-size: 70px; /* 아이콘도 결국 폰트 */
+  line-height: 170px;
+  margin: auto;
+  color: var(--color-blue);
+  border: 1px solid var(--color-blue);
+  border-radius: 50%;
+  margin-bottom: 16px;
+}
+.major__icon i {
+  transition: all var(--animation-duration);
+}
+.major__icon:hover i {
+  color: var(--color-pink);
+  transform: rotate(-30deg) scale(1.1);
+}
+.major__description,
+.major__title {
+  color: var(--color-dark-grey);
+}
+.major__description {
+  font-size: var(--font-small);
+}
+
+.job {
+  display: flex;
+  align-items: center;
+}
+
+.job__description {
+  margin: 0 16px;
+  text-align: left;
+}
+.job__name,
+.job__period {
+  color: var(--color-light-grey);
+}
+.job__name {
+  font-size: var(--font-small);
+}
+.job__period {
+  font-size: var(--font-micro);
 }
