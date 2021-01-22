@@ -365,9 +365,8 @@ p {
   margin: 20px;
 }
 .testimonial__speech-bubble {
-  flex-basis: 70%;
   padding: 20px;
-  text-align: center;
+
   background-color: var(--color-yellow);
   border-radius: var(--size-border-radius);
 }
