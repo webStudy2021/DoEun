@@ -255,3 +255,93 @@ p {
 .etc {
   padding: 20px;
 }
+
+/* WORK */
+.work__categories {
+  margin: 40px;
+}
+.category__btn {
+  border: 1px solid var(--color-dark-white);
+  border-radius: var(--size-border-radius);
+  font-size: var(--font-regular);
+  padding: 8px 48px;
+}
+.category__btn.active,
+.category__btn:hover {
+  /* 버튼을 누르거나 마우스를 올리면 */
+  background-color: var(--color-dark-pink); /* 상자배경색 */
+  color: var(--color-white); /* 텍스트 색 */
+}
+.category__btn.active .category__count,
+.category__btn:hover .category__count {
+  opacity: 1;
+  top: 0;
+}
+.category__count {
+  background-color: var(--color-orange);
+  border-radius: 50%;
+  color: var(--color-white);
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  display: inline-block;
+  position: relative;
+  top: -20px;
+  left: 4px;
+  opacity: 0; /* 평소에는 안보이도록 */
+  transition: all var(--animation-duration) ease-in;
+}
+.work__projects {
+  display: flex; /* 한쪽으로 정렬 */
+  flex-wrap: wrap; /* 반응형: 밑으로 내려가도록 */
+  justify-content: center;
+}
+.project {
+  position: relative;
+  width: 280px;
+  height: 250px;
+  margin: 2px;
+  background-color: var(--color-light-white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.project__img {
+  /* 자기가 담겨야할 공간에 딱 맞게 */
+  max-width: 100%;
+  max-height: 100%;
+}
+.project__description {
+  /* 부모.project => 여기에 position 을 relative로 */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-black);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  opacity: 0;
+  transition: all var(--animation-duration) ease-in;
+  transform: translateY(10px);
+}
+.project:hover .project__description {
+  /* 마우스 올라왓을 때 나타나게 해주기 */
+  opacity: 0.8;
+  transform: translateY(0px);
+}
+.project__description h3 {
+  color: var(--color-pink);
+}
+.project__description h3::after {
+  content: " ";
+  display: block;
+  position: relative;
+  left: 50%;
+  width: 25px;
+  height: 2px;
+  margin-left: -12px;
+  margin-top: 8px;
+  background-color: var(--color-dark-grey);
+}
