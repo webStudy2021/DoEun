@@ -95,7 +95,7 @@ p {
   justify-content: space-between;
   background-color: var(--color-pink);
   align-items: center;
-  color: var(--color-white);
+  /* color: var(--color-white);*/
   padding: 16px;
 }
 
@@ -105,20 +105,32 @@ p {
 .navbar__logo {
   font-size: var(--font-medium);
   font-weight: var(--weight-semi-bold);
+  color: white; /*  */
 }
 .navbar__menu__item {
   padding: 8px 12px;
-  margin: 0px 4px;
+  margin: 0 4px;
   cursor: pointer;
-  border-radius: var(--size-border-radius);
+  color: var(--color-white);
+  /*  
+  border-radius: var(--size-border-radius);*/
 }
 .navbar__menu__item.active {
+  border-radius: var(--size-border-radius);
   border: 1px solid var(--color-light-white); /* 하얀테두리박스 적용이 안됨. */
 }
 .navbar__menu__item:hover {
   /* 마우스 올라갔을 경우. 색바꿔주기 */
-
+  border-radius: var(--size-border-radius);
   background-color: var(--color-dark-pink);
+}
+.navbar__toggle-btn {
+  position: absolute;
+  top: 24px;
+  right: 32px;
+  font-size: 24px;
+  color: var(--color-white);
+  display: none; /* opacity 쓰면 커서 올라가면 눌리게 됨. */
 }
 
 #home {
@@ -140,9 +152,9 @@ p {
   color: white;
   font-size: var(--font-regular);
   font-weight: var(--weight-bold);
-  margin: 4px;
+  margin: 24px;
   padding: 8px 12px;
-  border: 4px solid var(--color-light-white);
+  border: 2px solid var(--color-light-white);
   border-radius: var(--size-border-radius);
 }
 /* Section COMMON */
@@ -176,7 +188,7 @@ p {
   margin-bottom: 16px;
 }
 .major__icon i {
-  transition: all var(--animation-duration);
+  transition: all var(--animation-duration) ease;
 }
 .major__icon:hover i {
   color: var(--color-pink);
@@ -240,7 +252,7 @@ p {
   padding: 20px 40px;
 }
 .skill {
-  margin-bottom: 20px;
+  margin-bottom: 32px;
 }
 .skill__bar {
   width: 100%;
@@ -265,7 +277,7 @@ p {
   border-radius: var(--size-border-radius);
   font-size: var(--font-regular);
   padding: 8px 48px;
-  margin: 8px;
+  /*  margin: 8px;*/
 }
 .category__btn.active,
 .category__btn:hover {
@@ -311,6 +323,7 @@ p {
   /* 자기가 담겨야할 공간에 딱 맞게 */
   max-width: 100%;
   max-height: 100%;
+  align-self: center; /* !!! */
 }
 .project__description {
   /* 부모.project => 여기에 position 을 relative로 */
@@ -333,9 +346,9 @@ p {
   transform: translateY(0px);
 }
 .project__description h3 {
-  color: var(--color-pink);
+  color: var(--color-white);
 }
-.project__description h3::after {
+.project__description h3:after {
   content: " ";
   display: block;
   position: relative;
@@ -344,11 +357,11 @@ p {
   height: 2px;
   margin-left: -12px;
   margin-top: 8px;
-  background-color: var(--color-dark-grey);
+  background-color: var(--color-dark-white);
 }
 
 /* testimonial */
-#testmonials {
+#testimonials {
   background-color: var(--color-light-white);
 }
 .testimonials {
@@ -357,15 +370,16 @@ p {
 .testimonial {
   display: flex;
   margin: 32px 0;
+  justify-content: center;
 }
 .testimonial__avator {
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  margin: 20px;
+  /*  margin: 20px; */
 }
 .testimonial__speech-bubble {
-  padding: 20px;
+  padding: 18px;
 
   background-color: var(--color-yellow);
   border-radius: var(--size-border-radius);
@@ -405,5 +419,44 @@ p {
 .contact__links i:hover {
   transform: scale(1.1);
   color: var(--color-yellow);
-  transition: all var(--animation-duration) ease-in;
+  transition: all var(--animation-duration) ease-in; /*  */
+}
+/* for below 768px screen width */
+@media screen and (max-width: 768px) {
+  /* @media는 스크린화면이 작을 때만 적용됨 */
+  .navbar__toggle-btn {
+    display: block;
+  }
+
+  #navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar__menu {
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+    display: none;
+  }
+  .about__major {
+    flex-direction: column;
+  }
+
+  .major {
+    margin-bottom: 38px;
+  }
+
+  .skillset {
+    flex-direction: column;
+  }
+
+  .project {
+    flex-grow: 1;
+  }
+
+  .testimonial__avatar {
+    width: 80px;
+    height: 80px;
+  }
 }
